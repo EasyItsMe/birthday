@@ -111,20 +111,12 @@ class BirthdayApp {
     this.anniversary = new Date(localStorage.getItem('hbd_anniversary') || RomanticConfig.anniversaryDate);
     this.selectedMood = "Loved every second of this! 💕";
 
-    // Load stored wishes or initialize default
-    const storedWishes = localStorage.getItem('hbd_wishes');
-    this.wishes = storedWishes ? JSON.parse(storedWishes) : [
-      "Endless happiness, laughter, and health together",
-      "May every secret dream in your heart come true this year"
-    ];
-
     this.initDOM();
     this.bindEvents();
     this.startCounter();
     this.renderReasons();
     this.renderMemories();
     this.renderLetter();
-    this.renderWishesArchive();
   }
 
   initDOM() {
@@ -147,8 +139,6 @@ class BirthdayApp {
 
     this.lanternWishInput = document.getElementById('lantern-wish-input');
     this.btnLaunchLantern = document.getElementById('btn-launch-lantern');
-    this.wishesCloud = document.getElementById('wishes-cloud');
-    this.wishCountPill = document.getElementById('wish-count-pill');
 
     this.replyMessageInput = document.getElementById('reply-message-input');
     this.btnSendWhatsapp = document.getElementById('btn-send-whatsapp');
@@ -327,12 +317,7 @@ class BirthdayApp {
     const wishText = this.lanternWishInput ? this.lanternWishInput.value.trim() : "";
     const finalWish = wishText || "Forever happiness and love with you";
 
-    // Save to Wish Vault
-    this.wishes.unshift(finalWish);
-    localStorage.setItem('hbd_wishes', JSON.stringify(this.wishes));
-    this.renderWishesArchive();
-
-    // Launch single glowing lantern into the sky
+    // Launch glowing lantern into the starry sky
     if (window.romanticVisuals) {
       window.romanticVisuals.launchSkyLantern(finalWish);
     }
@@ -340,28 +325,12 @@ class BirthdayApp {
 
     if (this.lanternWishInput) {
       this.lanternWishInput.value = "";
-      this.lanternWishInput.placeholder = "Your wish is floating among the stars! Write another?";
+      this.lanternWishInput.placeholder = "Your wish is floating to the stars! Write another?";
     }
 
     setTimeout(() => {
       window.romanticAudio.playSparkle();
     }, 700);
-  }
-
-  renderWishesArchive() {
-    if (!this.wishesCloud) return;
-    if (this.wishCountPill) {
-      this.wishCountPill.textContent = `${this.wishes.length} Released`;
-    }
-
-    this.wishesCloud.innerHTML = this.wishes.map((w, idx) => `
-      <span class="wish-pill" onclick="window.romanticAudio.playSparkle(); window.romanticVisuals.launchSkyLantern('${w.replace(/'/g, "\\'")}');">
-        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
-        </svg>
-        <span>${w}</span>
-      </span>
-    `).join('');
   }
 
   handleSendWhatsApp() {

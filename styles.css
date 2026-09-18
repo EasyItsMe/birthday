@@ -171,8 +171,8 @@ body {
 
 /* Isometric 3D Gift Box Stage */
 .gift-box-stage {
-  width: 180px;
-  height: 180px;
+  width: 170px;
+  height: 170px;
   position: relative;
   margin: 0 auto 16px;
   cursor: pointer;
@@ -324,21 +324,29 @@ body {
    NAVIGATION & FLOATING AUDIO CONTROLLER
    ========================================================================== */
 
-.floating-nav {
+.site-header {
   position: fixed;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
-  background: rgba(18, 11, 30, 0.9);
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.floating-nav {
+  pointer-events: auto;
+  background: rgba(18, 11, 30, 0.92);
   border: 1px solid var(--border-glass);
   backdrop-filter: blur(20px);
-  padding: 5px 10px;
+  padding: 5px 8px;
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
-  box-shadow: var(--shadow-luxe);
-  max-width: calc(100vw - 24px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  max-width: calc(100vw - 20px);
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
@@ -348,7 +356,7 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 4px;
+  gap: 3px;
   list-style: none;
   white-space: nowrap;
 }
@@ -359,7 +367,7 @@ body {
   font-size: 0.78rem;
   font-weight: 500;
   transition: var(--transition-smooth);
-  padding: 5px 10px;
+  padding: 5px 9px;
   border-radius: var(--radius-full);
   display: block;
 }
@@ -472,13 +480,19 @@ body {
 
 .hero-section {
   min-height: 100vh;
-  padding: 90px 0 60px;
+  padding: 110px 0 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding: 95px 0 45px;
+  }
 }
 
 .hero-badge {
@@ -490,10 +504,10 @@ body {
   background: rgba(244, 207, 117, 0.1);
   border: 1px solid var(--border-gold);
   color: var(--accent-gold);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 1.5px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .hero-title {
@@ -1303,7 +1317,7 @@ section {
 }
 
 /* ==========================================================================
-   SKY LANTERN WISH VAULT (Stored Wishes & Launch)
+   SKY LANTERN WISH RELEASE (Direct Launch)
    ========================================================================== */
 
 .lantern-box {
@@ -1374,65 +1388,8 @@ section {
   box-shadow: 0 10px 28px rgba(244, 207, 117, 0.6);
 }
 
-/* Stored Wish Archive / Cloud */
-.wishes-archive-wrapper {
-  margin-top: 26px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border-glass);
-  text-align: left;
-}
-
-.archive-title {
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--accent-gold);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.wish-count-pill {
-  background: rgba(244, 207, 117, 0.12);
-  border: 1px solid var(--border-gold);
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
-  font-size: 0.72rem;
-  font-weight: 600;
-}
-
-.wishes-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  max-height: 140px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-}
-
-.wish-pill {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(244, 207, 117, 0.25);
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  font-size: 0.84rem;
-  color: var(--text-main);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: var(--transition-smooth);
-  cursor: pointer;
-}
-
-.wish-pill:hover {
-  background: rgba(244, 207, 117, 0.15);
-  border-color: var(--accent-gold);
-  transform: translateY(-2px);
-}
-
 /* ==========================================================================
-   A NOTE BACK TO MY LOVE (WhatsApp Response)
+   A NOTE BACK TO MY LOVE - DIRECT MESSAGE
    ========================================================================== */
 
 .reply-section {
@@ -1505,30 +1462,31 @@ section {
   box-shadow: 0 0 15px rgba(242, 132, 158, 0.3);
 }
 
-.btn-send-whatsapp {
+.btn-send-reply {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   width: 100%;
-  max-width: 340px;
+  max-width: 320px;
   padding: 14px 24px;
   border-radius: var(--radius-full);
-  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  background: linear-gradient(135deg, #f2849e 0%, #c9184a 100%);
   color: #fff;
   border: none;
   font-size: 0.95rem;
   font-weight: 700;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+  box-shadow: 0 6px 20px rgba(242, 132, 158, 0.35);
   transition: var(--transition-smooth);
   touch-action: manipulation;
 }
 
-.btn-send-whatsapp:hover,
-.btn-send-whatsapp:active {
+.btn-send-reply:hover,
+.btn-send-reply:active {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.55);
+  box-shadow: 0 10px 28px rgba(242, 132, 158, 0.55);
 }
 
 /* ==========================================================================

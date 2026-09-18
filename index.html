@@ -26,7 +26,7 @@
   <div class="entrance-overlay" id="entrance-overlay">
     <div class="entrance-card">
       
-      <!-- Handcrafted 3D Isometric Luxury Gift Box (Pixel-Perfect & Robust) -->
+      <!-- Handcrafted 3D Isometric Luxury Gift Box -->
       <div class="gift-box-stage" id="gift-box-3d" title="Tap to open your birthday surprise">
         <div class="gift-box-wrapper">
           <!-- Animated Box Lid -->
@@ -73,16 +73,11 @@
 
               <!-- 3D Luxury Silk Bow Knot & Loops -->
               <g class="gift-bow-group" filter="url(#goldGlow)">
-                <!-- Left Bow Loop -->
                 <path d="M100,45 C75,15 60,35 90,48 Z" fill="url(#goldRibbonLid)" stroke="#fff" stroke-width="0.5"/>
-                <!-- Right Bow Loop -->
                 <path d="M100,45 C125,15 140,35 110,48 Z" fill="url(#goldRibbonLid)" stroke="#fff" stroke-width="0.5"/>
-                <!-- Ribbon Tails -->
                 <path d="M96,48 Q80,70 65,75 Q85,65 98,52 Z" fill="url(#goldRibbonLid)"/>
                 <path d="M104,48 Q120,70 135,75 Q115,65 102,52 Z" fill="url(#goldRibbonLid)"/>
-                <!-- Center Bow Knot -->
                 <ellipse cx="100" cy="46" rx="9" ry="8" fill="#ffeaa7" stroke="#b8860b" stroke-width="1"/>
-                <!-- Sparkle Star inside knot -->
                 <path d="M100,41 L102,45 L106,46 L102,47 L100,51 L98,47 L94,46 L98,45 Z" fill="#73132c"/>
               </g>
             </svg>
@@ -107,29 +102,19 @@
                 </radialGradient>
               </defs>
 
-              <!-- Ambient Shadow Base -->
               <ellipse cx="100" cy="148" rx="80" ry="12" fill="url(#boxShadow)"/>
-
-              <!-- Left/Front Box Wall -->
               <polygon points="28,30 100,65 100,140 28,105" fill="url(#bodyLeftGrad)" stroke="#f4cf75" stroke-width="0.8"/>
-              <!-- Front Vertical Ribbon -->
               <polygon points="58,45 70,51 70,126 58,120" fill="url(#goldRibbonLid)"/>
-
-              <!-- Right/Side Box Wall -->
               <polygon points="100,65 172,30 172,105 100,140" fill="url(#bodyRightGrad)" stroke="#f4cf75" stroke-width="0.8"/>
-              <!-- Side Vertical Ribbon -->
               <polygon points="130,51 142,45 142,120 130,126" fill="url(#goldRibbonLid)"/>
 
-              <!-- Front Wax Seal Badge with Heart -->
               <g class="wax-seal-badge-group">
                 <circle cx="100" cy="90" r="16" fill="radial-gradient(circle, #e63946, #800f18)" stroke="#f4cf75" stroke-width="1.5"/>
-                <!-- Heart Icon in Wax Seal -->
                 <path d="M100,97.5 l-1.2,-1.1 C94.5,92 91.5,89.3 91.5,86 c0-2.6 2-4.5 4.5-4.5 c1.5,0 2.9,0.7 3.8,1.8 c0.9-1.1 2.3-1.8 3.8-1.8 c2.5,0 4.5,1.9 4.5,4.5 c0,3.3-3,6-7.3,10.4 Z" fill="#ffffff"/>
               </g>
             </svg>
           </div>
 
-          <!-- Magical Inner Glow that bursts when opened -->
           <div class="gift-light-burst"></div>
         </div>
       </div>
@@ -156,18 +141,18 @@
   </div>
 
   <!-- =========================================================================
-       FLOATING NAVIGATION & BESPOKE AUDIO CONTROLLER
+       TOP NAVIGATION BAR
        ========================================================================= -->
-  <header>
+  <header class="site-header">
     <nav class="floating-nav" aria-label="Main Navigation">
       <ul class="nav-links">
-        <li><a href="#hero">Celebration</a></li>
-        <li><a href="#reasons">Adoration</a></li>
+        <li><a href="#hero">Celebrate</a></li>
+        <li><a href="#reasons">Reasons</a></li>
         <li><a href="#memories">Moments</a></li>
         <li><a href="#journey">Timeline</a></li>
-        <li><a href="#letter">Love Letter</a></li>
-        <li><a href="#wish">Sky Lanterns</a></li>
-        <li><a href="#reply">Reply to Me</a></li>
+        <li><a href="#letter">Letter</a></li>
+        <li><a href="#wish">Lanterns</a></li>
+        <li><a href="#reply">Reply</a></li>
       </ul>
     </nav>
   </header>
@@ -184,7 +169,7 @@
       </svg>
     </button>
     <div class="music-info">
-      <span class="music-title" id="music-track-title">Our Favorite Song</span>
+      <span class="music-title" id="music-track-title">Our Special Song</span>
       <span class="music-status">Playing for You</span>
     </div>
     <div class="music-visualizer" title="Sound Visualizer">
@@ -391,17 +376,17 @@
     </section>
 
     <!-- =========================================================================
-         SKY LANTERN WISH VAULT (Persistent Storage & Individual Launch)
+         SKY LANTERN WISH RELEASE (Direct Launch into the Sky)
          ========================================================================= -->
     <section id="wish">
       <div class="container">
         <div class="lantern-box">
-          <span class="section-tag">Sky Lantern Wish Vault</span>
+          <span class="section-tag">Sky Lantern Wish</span>
           <h2 class="font-heading text-gradient-gold" style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 8px 0 12px;">
             Release A Glowing Sky Lantern
           </h2>
           <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; max-width: 520px; margin: 0 auto 20px;">
-            Write down a birthday wish, secret hope, or sweet promise. Every wish you submit is saved and released into the starry sky one by one.
+            Write down a birthday wish, secret hope, or sweet promise. Type your wish and watch it float up into the starry sky.
           </p>
 
           <div class="wish-input-wrapper">
@@ -413,23 +398,12 @@
               </svg>
             </button>
           </div>
-
-          <!-- Stored Wish Archive / Floating Wish Pills -->
-          <div class="wishes-archive-wrapper" id="wishes-archive-wrapper">
-            <h4 class="archive-title">
-              <span>Wishes in the Sky</span>
-              <span class="wish-count-pill" id="wish-count-pill">0 Released</span>
-            </h4>
-            <div class="wishes-cloud" id="wishes-cloud">
-              <!-- Dynamically populated from localStorage -->
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- =========================================================================
-         A NOTE BACK TO MY LOVE - DIRECT WHATSAPP MESSAGE
+         A NOTE BACK TO MY LOVE - DIRECT MESSAGE
          ========================================================================= -->
     <section class="reply-section" id="reply">
       <div class="container">
@@ -440,7 +414,7 @@
               Send a Birthday Note to Me
             </h2>
             <p style="color: var(--text-muted); font-size: 0.94rem; max-width: 520px; margin: 0 auto;">
-              Did you like your birthday surprise? Write a sweet reply, pick your mood, and send it directly to my WhatsApp!
+              Did you like your birthday surprise? Write a sweet reply, pick your mood, and send it directly to me!
             </p>
           </div>
 
@@ -457,12 +431,12 @@
             <textarea id="reply-message-input" class="reply-textarea" rows="4" placeholder="Write your sweet message or birthday reaction here..."></textarea>
           </div>
 
-          <!-- WhatsApp Action Button -->
-          <button class="btn-send-whatsapp" id="btn-send-whatsapp">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.56 0 8.25 3.69 8.25 8.24 0 2.21-.86 4.28-2.42 5.84a8.17 8.17 0 0 1-5.83 2.41c-1.47 0-2.93-.39-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.187 8.187 0 0 1-1.26-4.39c0-4.55 3.7-8.24 8.25-8.24m4.54 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8 2.53 1.09 2.53.73 2.98.69.46-.04 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.3"/>
+          <!-- Action Button - Clean Luxury Style without WhatsApp Logo -->
+          <button class="btn-send-reply" id="btn-send-whatsapp">
+            <span>Send Message</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
-            <span>Send Message via WhatsApp</span>
           </button>
         </div>
       </div>
