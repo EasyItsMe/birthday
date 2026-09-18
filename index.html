@@ -141,10 +141,11 @@
   </div>
 
   <!-- =========================================================================
-       TOP NAVIGATION BAR
+       TOP NAVIGATION BAR (Desktop Floating Pill & Mobile Romantic Drawer)
        ========================================================================= -->
   <header class="site-header">
-    <nav class="floating-nav" aria-label="Main Navigation">
+    <!-- Desktop Navigation Pill (Hidden on Mobile) -->
+    <nav class="floating-nav desktop-nav" aria-label="Desktop Navigation">
       <ul class="nav-links">
         <li><a href="#hero">Celebrate</a></li>
         <li><a href="#reasons">Reasons</a></li>
@@ -155,7 +156,50 @@
         <li><a href="#reply">Reply</a></li>
       </ul>
     </nav>
+
+    <!-- Mobile Quick Navigation Pill Button -->
+    <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Open Navigation Menu">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="4" y1="7" x2="20" y2="7"/>
+        <line x1="4" y1="12" x2="20" y2="12"/>
+        <line x1="4" y1="17" x2="20" y2="17"/>
+      </svg>
+      <span>Menu</span>
+    </button>
   </header>
+
+  <!-- Mobile Romantic Navigation Drawer Overlay -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer" role="dialog" aria-modal="true">
+    <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop"></div>
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <span class="luxury-badge">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+          </svg>
+          EXPLORE
+        </span>
+        <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close Menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <p class="mobile-drawer-subtitle font-heading text-gradient-gold">A Special Journey For You</p>
+
+      <ul class="mobile-nav-list">
+        <li><a href="#hero" class="mobile-nav-link"><span>🎂</span> Celebrate & Wish</a></li>
+        <li><a href="#reasons" class="mobile-nav-link"><span>💌</span> Reasons I Love You</a></li>
+        <li><a href="#memories" class="mobile-nav-link"><span>📷</span> Polaroid Memories</a></li>
+        <li><a href="#journey" class="mobile-nav-link"><span>✨</span> Our Love Timeline</a></li>
+        <li><a href="#letter" class="mobile-nav-link"><span>📜</span> Heartfelt Love Letter</a></li>
+        <li><a href="#wish" class="mobile-nav-link"><span>🏮</span> Sky Lantern Wish</a></li>
+        <li><a href="#reply" class="mobile-nav-link"><span>❤️</span> Send a Note Back</a></li>
+      </ul>
+    </div>
+  </div>
 
   <!-- Mini Floating Music Player Widget -->
   <aside class="floating-music-bar" id="floating-music-bar" aria-label="Audio Player">

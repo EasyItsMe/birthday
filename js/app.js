@@ -150,6 +150,13 @@ class BirthdayApp {
     this.lightboxDesc = document.getElementById('lightbox-desc');
     this.lightboxClose = document.getElementById('lightbox-close');
 
+    // Mobile Navigation Drawer DOM
+    this.mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    this.mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+    this.mobileDrawerClose = document.getElementById('mobile-drawer-close');
+    this.mobileDrawerBackdrop = document.getElementById('mobile-drawer-backdrop');
+    this.mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
     // Partner name injection
     document.querySelectorAll('.partner-name-text').forEach(el => {
       el.textContent = RomanticConfig.partnerName;
@@ -157,6 +164,29 @@ class BirthdayApp {
   }
 
   bindEvents() {
+    // Mobile Navigation Drawer Events
+    if (this.mobileNavToggle && this.mobileNavDrawer) {
+      this.mobileNavToggle.addEventListener('click', () => {
+        this.mobileNavDrawer.classList.add('active');
+        window.romanticAudio.playSparkle();
+      });
+    }
+
+    const closeDrawer = () => {
+      if (this.mobileNavDrawer) {
+        this.mobileNavDrawer.classList.remove('active');
+      }
+    };
+
+    if (this.mobileDrawerClose) this.mobileDrawerClose.addEventListener('click', closeDrawer);
+    if (this.mobileDrawerBackdrop) this.mobileDrawerBackdrop.addEventListener('click', closeDrawer);
+
+    if (this.mobileNavLinks) {
+      this.mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => closeDrawer());
+      });
+    }
+
     // 3D Gift Box Entrance Unlock
     const unlock = () => this.unlockSurprise();
     if (this.giftBox3D) this.giftBox3D.addEventListener('click', unlock);
