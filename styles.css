@@ -330,7 +330,7 @@ body {
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 10px 0;
+  padding: 8px 12px;
   display: flex;
   justify-content: center;
   pointer-events: none;
@@ -338,15 +338,16 @@ body {
 
 .floating-nav {
   pointer-events: auto;
-  background: rgba(18, 11, 30, 0.92);
+  background: rgba(18, 11, 30, 0.94);
   border: 1px solid var(--border-glass);
-  backdrop-filter: blur(20px);
-  padding: 5px 8px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: 4px 6px;
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-  max-width: calc(100vw - 20px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.55), 0 0 12px rgba(244, 207, 117, 0.1);
+  max-width: 100%;
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
@@ -356,18 +357,19 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 3px;
+  gap: 2px;
   list-style: none;
   white-space: nowrap;
+  padding: 0 2px;
 }
 
 .nav-links a {
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 500;
   transition: var(--transition-smooth);
-  padding: 5px 9px;
+  padding: 5px 8px;
   border-radius: var(--radius-full);
   display: block;
 }
@@ -375,7 +377,7 @@ body {
 .nav-links a:hover,
 .nav-links a.active {
   color: #fff;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 /* Mini Audio Player Widget */
@@ -383,7 +385,7 @@ body {
   position: fixed;
   bottom: 16px;
   right: 16px;
-  z-index: 1000;
+  z-index: 990;
   background: rgba(20, 13, 34, 0.95);
   border: 1px solid var(--border-rose);
   backdrop-filter: blur(16px);
@@ -398,10 +400,24 @@ body {
 }
 
 @media (max-width: 640px) {
+  .site-header {
+    padding: 6px 8px;
+  }
+  
+  .floating-nav {
+    padding: 3px 5px;
+  }
+
+  .nav-links a {
+    font-size: 0.72rem;
+    padding: 4px 7px;
+  }
+
   .floating-music-bar {
     bottom: 12px;
     right: 12px;
-    padding: 5px 10px;
+    padding: 4px 8px;
+    max-width: calc(100vw - 24px);
   }
 }
 
@@ -791,10 +807,14 @@ body {
 section {
   padding: 70px 0;
   position: relative;
+  scroll-margin-top: 65px;
 }
 
 @media (max-width: 640px) {
-  section { padding: 48px 0; }
+  section {
+    padding: 52px 0;
+    scroll-margin-top: 55px;
+  }
 }
 
 .section-header {
