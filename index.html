@@ -3,63 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday, My Love | A Special Journey Just For You</title>
-  <meta name="description" content="A magical, heartfelt romantic birthday celebration created exclusively for the most special person in my life.">
+  <title>A Special Celebration | Happy Birthday, My Love</title>
+  <meta name="description" content="An intimate, handcrafted luxury digital gift celebrating the most special person in my life.">
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Editorial Luxury Serif & Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Canvas Layers -->
+  <!-- Canvas Layers for Starfield, Confetti & Floating Lanterns -->
   <canvas id="bg-canvas"></canvas>
   <canvas id="lantern-canvas"></canvas>
   <canvas id="confetti-canvas"></canvas>
 
   <!-- =========================================================================
-       ENTRANCE SCREEN (Wax Seal / Tap to Open)
+       ENTRANCE SCREEN - LUXURY 3D GIFT BOX
        ========================================================================= -->
   <div class="entrance-overlay" id="entrance-overlay">
-    <div class="envelope-card">
-      <div class="envelope-seal" id="envelope-seal" title="Tap to Break the Seal & Open">
-        <span class="seal-heart">💌</span>
+    <div class="entrance-stage">
+      <div class="gift-box-container" id="gift-box-3d" title="Tap to open your birthday surprise">
+        <!-- 3D Gift Box Structure -->
+        <div class="gift-box">
+          <!-- Box Lid -->
+          <div class="box-lid" id="box-lid">
+            <div class="lid-face lid-top">
+              <div class="ribbon-cross-h"></div>
+              <div class="ribbon-cross-v"></div>
+              <div class="gift-bow">
+                <div class="bow-loop loop-left"></div>
+                <div class="bow-loop loop-right"></div>
+                <div class="bow-knot">
+                  <svg class="icon-sparkle" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="lid-face lid-front"></div>
+            <div class="lid-face lid-back"></div>
+            <div class="lid-face lid-left"></div>
+            <div class="lid-face lid-right"></div>
+          </div>
+
+          <!-- Box Body -->
+          <div class="box-body">
+            <div class="box-face box-front">
+              <div class="ribbon-v"></div>
+              <div class="box-seal-badge">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="box-face box-back">
+              <div class="ribbon-v"></div>
+            </div>
+            <div class="box-face box-left">
+              <div class="ribbon-v"></div>
+            </div>
+            <div class="box-face box-right">
+              <div class="ribbon-v"></div>
+            </div>
+            <div class="box-face box-bottom"></div>
+            <!-- Inner Glowing Light Burst -->
+            <div class="box-inner-glow"></div>
+          </div>
+        </div>
       </div>
-      <p class="entrance-tag">A Special Gift For You</p>
-      <h1 class="entrance-title font-heading text-gradient-gold">Happy Birthday, <br><span class="partner-name-text">My Dearest Love</span></h1>
-      <p class="entrance-subtitle">I created this little universe filled with our memories, love notes, and wishes just for you.</p>
-      <button class="btn-open-gift" id="btn-open-gift">
-        <span>Tap to Open Your Birthday Surprise</span>
-        <span style="font-size: 1.2rem;">✨</span>
-      </button>
+
+      <div class="entrance-copy">
+        <span class="luxury-badge">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+          </svg>
+          EXCLUSIVE GIFT
+        </span>
+        <h1 class="entrance-title font-heading text-gradient-gold">A Special Journey For You</h1>
+        <p class="entrance-subtitle">An intimate celebration created with all my love. Tap the gift box to unlock.</p>
+        
+        <button class="btn-open-gift" id="btn-open-gift">
+          <span class="btn-text">Open Your Gift</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 
   <!-- =========================================================================
-       FLOATING NAVIGATION & AUDIO CONTROLLER
+       FLOATING NAVIGATION & BESPOKE AUDIO CONTROLLER
        ========================================================================= -->
   <header>
     <nav class="floating-nav" aria-label="Main Navigation">
       <ul class="nav-links">
-        <li><a href="#hero">Celebrate</a></li>
-        <li><a href="#reasons">Reasons</a></li>
-        <li><a href="#memories">Memories</a></li>
-        <li><a href="#journey">Our Time</a></li>
+        <li><a href="#hero">Celebration</a></li>
+        <li><a href="#reasons">Adoration</a></li>
+        <li><a href="#memories">Moments</a></li>
+        <li><a href="#journey">Timeline</a></li>
         <li><a href="#letter">Love Letter</a></li>
-        <li><a href="#wish">Sky Lantern</a></li>
+        <li><a href="#wish">Sky Lanterns</a></li>
+        <li><a href="#reply">Reply to Me</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Mini Floating Music Player Widget -->
-  <aside class="floating-music-bar" id="floating-music-bar">
-    <button class="music-btn" id="music-toggle-btn" aria-label="Play or Pause Romantic Ambient Music">▶</button>
+  <aside class="floating-music-bar" id="floating-music-bar" aria-label="Audio Player">
+    <button class="music-btn" id="music-toggle-btn" aria-label="Play / Pause Audio">
+      <svg id="music-play-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+        <polygon points="5 3 19 12 5 21 5 3"/>
+      </svg>
+      <svg id="music-pause-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="display: none;">
+        <rect x="6" y="4" width="4" height="16"/>
+        <rect x="14" y="4" width="4" height="16"/>
+      </svg>
+    </button>
     <div class="music-info">
-      <span class="music-title" id="music-track-title">Moonlit Melody ✨</span>
-      <span class="music-status">Romantic Ambient Melody</span>
+      <span class="music-title" id="music-track-title">Our Special Melody</span>
+      <span class="music-status">Romantic Soundtrack</span>
     </div>
     <div class="music-visualizer" title="Sound Visualizer">
       <span class="visualizer-bar"></span>
@@ -67,32 +133,38 @@
       <span class="visualizer-bar"></span>
       <span class="visualizer-bar"></span>
     </div>
-    <button class="music-btn" id="music-next-btn" style="width: 28px; height: 28px; font-size: 11px; background: rgba(255,255,255,0.15);" title="Switch Track">⏭</button>
+    <button class="music-btn music-next-btn" id="music-next-btn" title="Next Song">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+        <polygon points="5 4 15 12 5 20 5 4"/>
+        <line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </button>
   </aside>
 
   <!-- =========================================================================
-       HERO CELEBRATION & INTERACTIVE BIRTHDAY CAKE
+       HERO CELEBRATION & 3D BIRTHDAY CAKE
        ========================================================================= -->
   <main>
     <section class="hero-section" id="hero">
       <div class="container">
         <div class="hero-badge">
-          <span>✨</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+          </svg>
           <span>CELEBRATING YOUR SPECIAL DAY</span>
         </div>
 
         <h1 class="hero-title font-heading">
           Happy Birthday, <br>
-          <span class="text-gradient-rose hero-partner-name partner-name-text">My Dearest Love</span> 🎂
+          <span class="text-gradient-rose hero-partner-name partner-name-text">My Dearest Love</span>
         </h1>
 
-        <p class="hero-subtitle">
-          To the one who holds my heart, lights up my darkest skies, and turns ordinary moments into pure magic. Today and every day, you are my favorite blessing.
-        </p>
+        <!-- Typewriter Animated Tagline -->
+        <p class="hero-subtitle" id="hero-typewriter-text"></p>
 
         <!-- Interactive 3D Birthday Cake -->
-        <div class="cake-stage" id="cake-stage" title="Click anywhere on the cake to make a wish & blow the candles!">
-          <!-- Candles -->
+        <div class="cake-stage" id="cake-stage" title="Click to blow out the candle and make a wish">
+          <!-- Candle & Flame -->
           <div class="candle-wrapper">
             <div class="candle" id="candle">
               <div class="candle-wick"></div>
@@ -117,20 +189,24 @@
           <div class="cake-plate"></div>
         </div>
 
-        <div>
+        <div class="cake-action-wrapper">
           <button class="cake-instructions" onclick="window.birthdayApp.blowCandle()">
-            <span>🕯️</span>
-            <span>Click the Cake or Tap Here to Make a Wish & Blow the Candles!</span>
-            <span>💨</span>
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+            <span>Tap Cake or Click Here to Make a Wish & Extinguish Candle</span>
           </button>
         </div>
 
-        <!-- Birthday Wish Card Revealed After Blow -->
+        <!-- Birthday Wish Card Revealed After Blow with Typewriter -->
         <div class="wish-reveal-box" id="wish-reveal-box">
-          <h3 class="font-heading text-gradient-gold" style="font-size: 1.5rem; margin-bottom: 8px;">✨ A Birthday Blessing For You ✨</h3>
-          <p style="color: #fff; font-size: 1.05rem; line-height: 1.7; font-style: italic;">
-            "I wished for happiness, and the universe gave me you. May this new year of your life be overflowing with boundless love, gentle peace, wonderful adventures, and every dream your heart secretly yearns for."
-          </p>
+          <div class="wish-reveal-header">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--accent-gold)" stroke-width="2">
+              <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+            </svg>
+            <h3 class="font-heading text-gradient-gold">A Birthday Blessing For You</h3>
+          </div>
+          <p id="wish-typewriter-text" class="wish-text-content"></p>
         </div>
       </div>
     </section>
@@ -143,7 +219,7 @@
         <div class="section-header">
           <span class="section-tag">Endless Little Things</span>
           <h2 class="section-title font-heading text-gradient-gold">Reasons Why I Fell For You</h2>
-          <p class="section-subtitle">There are a million reasons why I adore you, but here are just a few chapters from my heart.</p>
+          <p class="section-subtitle">A collection of reasons why you make my heart skip a beat every single day.</p>
         </div>
 
         <div class="reasons-grid" id="reasons-grid">
@@ -160,11 +236,11 @@
         <div class="section-header">
           <span class="section-tag">Captured Sweet Moments</span>
           <h2 class="section-title font-heading text-gradient-rose">Treasures We've Shared</h2>
-          <p class="section-subtitle">Every second spent with you is a snapshot I keep locked in my fondest thoughts.</p>
+          <p class="section-subtitle">Every photograph holds a chapter of the warmth and joy we create together.</p>
         </div>
 
         <div class="polaroid-wall" id="polaroid-wall">
-          <!-- Populated by js/app.js -->
+          <!-- Populated with your authentic photos by js/app.js -->
         </div>
       </div>
     </section>
@@ -176,11 +252,11 @@
       <div class="container">
         <div class="counter-container">
           <span class="section-tag" style="color: var(--accent-gold);">Our Beautiful Journey</span>
-          <h2 class="font-heading" style="font-size: clamp(2rem, 3.5vw, 2.8rem); margin: 10px 0 16px;">
+          <h2 class="font-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin: 10px 0 14px;">
             Loving You Every Single Second
           </h2>
-          <p style="color: var(--text-muted); max-width: 550px; margin: 0 auto 24px;">
-            Time flies in the sweetest way when I am with you. Here is how long you have been the center of my world:
+          <p style="color: var(--text-muted); max-width: 540px; margin: 0 auto 24px; font-size: 0.95rem;">
+            Time flows in the sweetest way when I am with you. Here is the measure of our cherished journey:
           </p>
 
           <div class="timer-grid">
@@ -202,13 +278,13 @@
             </div>
           </div>
 
-          <p class="counter-footer">...and counting towards forever & always ❤️</p>
+          <p class="counter-footer font-script">...and counting towards forever with you</p>
 
           <div>
-            <button class="counter-edit-toggle" id="counter-edit-toggle">Change Anniversary / Meeting Date</button>
+            <button class="counter-edit-toggle" id="counter-edit-toggle">Adjust Anniversary Date</button>
             <div class="counter-date-picker" id="counter-date-picker">
               <input type="date" id="anniversary-input" value="2023-06-18">
-              <button class="btn-launch-lantern" id="save-date-btn" style="padding: 6px 18px; font-size: 0.85rem;">Save Date</button>
+              <button class="btn-launch-lantern" id="save-date-btn" style="padding: 6px 16px; font-size: 0.82rem;">Save Date</button>
             </div>
           </div>
         </div>
@@ -216,14 +292,14 @@
     </section>
 
     <!-- =========================================================================
-         A HEARTFELT LOVE LETTER
+         A HEARTFELT LOVE LETTER (With Animated Reading Mode)
          ========================================================================= -->
     <section id="letter">
       <div class="container">
         <div class="section-header">
           <span class="section-tag">From My Soul To Yours</span>
           <h2 class="section-title font-heading text-gradient-gold">A Birthday Letter For You</h2>
-          <p class="section-subtitle">Words can scarcely hold everything I feel, but here is my honest love.</p>
+          <p class="section-subtitle">Every word written straight from my heart to honor this special day.</p>
         </div>
 
         <div class="letter-wrapper">
@@ -234,17 +310,19 @@
               <span class="letter-date-stamp" id="letter-date-stamp">On Your Special Birthday</span>
             </div>
 
-            <div id="letter-body">
-              <!-- Rendered via js/app.js -->
+            <div id="letter-body" class="letter-body-text">
+              <!-- Rendered via js/app.js with elegant typewriter text -->
             </div>
 
             <div class="letter-signature-box">
               <div>
                 <p class="letter-sign-off" id="letter-sign-off">Forever cheering for you & loving you deeply,</p>
-                <div class="letter-signature" id="letter-signature">Yours Always ❤️</div>
+                <div class="letter-signature" id="letter-signature">Yours Always</div>
               </div>
               <div class="letter-seal-stamp">
-                <span>❦</span>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
               </div>
             </div>
           </div>
@@ -253,52 +331,80 @@
     </section>
 
     <!-- =========================================================================
-         SKY LANTERN WISH RELEASE
+         SKY LANTERN WISH VAULT (Persistent Storage & Individual Launch)
          ========================================================================= -->
     <section id="wish">
       <div class="container">
         <div class="lantern-box">
-          <span class="section-tag">Send A Wish To The Heavens</span>
-          <h2 class="font-heading text-gradient-gold" style="font-size: 2.2rem; margin: 8px 0 14px;">
-            Release A Glowing Sky Lantern 🏮
+          <span class="section-tag">Sky Lantern Wish Vault</span>
+          <h2 class="font-heading text-gradient-gold" style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 8px 0 12px;">
+            Release A Glowing Sky Lantern
           </h2>
-          <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.6;">
-            Type a birthday wish, a secret hope, or a sweet promise. Click release and watch your glowing lantern float high into the starry sky!
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; max-width: 520px; margin: 0 auto 20px;">
+            Write down a birthday wish, secret hope, or sweet promise. Every wish you submit is saved and released into the starry sky one by one.
           </p>
 
           <div class="wish-input-wrapper">
-            <input type="text" id="lantern-wish-input" class="wish-input" placeholder="Type your birthday wish here..." maxlength="60" autocomplete="off">
+            <input type="text" id="lantern-wish-input" class="wish-input" placeholder="Type your birthday wish here..." maxlength="70" autocomplete="off">
             <button class="btn-launch-lantern" id="btn-launch-lantern">
               <span>Release Lantern</span>
-              <span>✨</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 19V5M5 12l7-7 7 7"/>
+              </svg>
             </button>
+          </div>
+
+          <!-- Stored Wish Archive / Floating Wish Pills -->
+          <div class="wishes-archive-wrapper" id="wishes-archive-wrapper">
+            <h4 class="archive-title">
+              <span>Wishes in the Sky</span>
+              <span class="wish-count-pill" id="wish-count-pill">0 Released</span>
+            </h4>
+            <div class="wishes-cloud" id="wishes-cloud">
+              <!-- Dynamically populated from localStorage -->
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- =========================================================================
-         LOVE TAP / KISSES SPAMMER SECTION
+         A NOTE BACK TO MY LOVE - DIRECT WHATSAPP MESSAGE
          ========================================================================= -->
-    <section class="love-tap-section" id="kisses">
+    <section class="reply-section" id="reply">
       <div class="container">
-        <span class="section-tag">A Shower of Affection</span>
-        <h2 class="font-heading" style="font-size: 2.2rem; margin: 8px 0 16px;">
-          Send Birthday Kisses & Hugs 💋
-        </h2>
-        <p style="color: var(--text-muted); margin-bottom: 28px;">
-          Tap the beating heart to send endless love and unlock sweet surprise milestones!
-        </p>
+        <div class="reply-card">
+          <div class="reply-header">
+            <span class="section-tag">A Special Note Back</span>
+            <h2 class="font-heading text-gradient-rose" style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 6px 0 12px;">
+              Send a Birthday Note to Me
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.94rem; max-width: 520px; margin: 0 auto;">
+              Did you like your birthday surprise? Write a sweet reply, pick your mood, and send it directly to my WhatsApp!
+            </p>
+          </div>
 
-        <button class="love-tap-btn" id="love-tap-btn" aria-label="Tap to send a birthday kiss">
-          <span>💖</span>
-        </button>
+          <!-- Mood / Feeling Chips -->
+          <div class="mood-chips-container" id="mood-chips">
+            <button type="button" class="mood-chip active" data-mood="Loved every second of this! 💕">Loved this so much</button>
+            <button type="button" class="mood-chip" data-mood="Tears of joy & happiest heart 🥺✨">Tears of joy</button>
+            <button type="button" class="mood-chip" data-mood="My absolute favorite gift ever 👑">Best gift ever</button>
+            <button type="button" class="mood-chip" data-mood="Can't wait to see you for our date! 🥰">Can't wait to see you</button>
+          </div>
 
-        <div class="love-counter-badge">
-          Kisses Sent: <span id="kisses-counter">0</span>
+          <!-- Reply Textarea -->
+          <div class="reply-input-wrapper">
+            <textarea id="reply-message-input" class="reply-textarea" rows="4" placeholder="Write your sweet message or birthday reaction here..."></textarea>
+          </div>
+
+          <!-- WhatsApp Action Button -->
+          <button class="btn-send-whatsapp" id="btn-send-whatsapp">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.56 0 8.25 3.69 8.25 8.24 0 2.21-.86 4.28-2.42 5.84a8.17 8.17 0 0 1-5.83 2.41c-1.47 0-2.93-.39-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.187 8.187 0 0 1-1.26-4.39c0-4.55 3.7-8.24 8.25-8.24m4.54 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8 2.53 1.09 2.53.73 2.98.69.46-.04 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.3"/>
+            </svg>
+            <span>Send Message via WhatsApp</span>
+          </button>
         </div>
-
-        <div class="love-milestone-toast" id="love-milestone-toast"></div>
       </div>
     </section>
   </main>
@@ -308,7 +414,12 @@
        ========================================================================= -->
   <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true">
     <div class="lightbox-content">
-      <button class="lightbox-close" id="lightbox-close" aria-label="Close modal">✕</button>
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close modal">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
       <img src="" alt="" class="lightbox-img" id="lightbox-img">
       <h3 class="lightbox-title font-heading text-gradient-gold" id="lightbox-title"></h3>
       <p class="lightbox-desc" id="lightbox-desc"></p>
@@ -320,10 +431,10 @@
        ========================================================================= -->
   <footer>
     <div class="container">
-      <p style="font-family: var(--font-script); font-size: 1.5rem; color: var(--accent-rose); margin-bottom: 8px;">
+      <p style="font-family: var(--font-heading); font-style: italic; font-size: 1.25rem; color: var(--accent-rose); margin-bottom: 8px;">
         "Whatever our souls are made of, yours and mine are the same."
       </p>
-      <p>Crafted with endless love & devotion for <span class="partner-name-text text-gradient-gold">My Sweetheart</span>'s Birthday.</p>
+      <p style="font-size: 0.88rem; color: var(--text-dim);">Handcrafted with infinite devotion for <span class="partner-name-text text-gradient-gold">My Sweetheart</span>'s Birthday.</p>
     </div>
   </footer>
 
