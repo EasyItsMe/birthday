@@ -253,8 +253,8 @@ class BirthdayApp {
   }
 
   unlockSurprise() {
-    // 3D Gift box lid lift animation
-    const giftBox = document.querySelector('.gift-box');
+    // Isometric Gift box lid lift animation
+    const giftBox = document.querySelector('.gift-box-stage');
     if (giftBox) giftBox.classList.add('opened');
 
     // Play Sparkle sound & start music
