@@ -38,6 +38,27 @@
                 <stop offset="100%" stop-color="transparent"/>
               </radialGradient>
 
+              <!-- Inside Back-Left Wall (Deep Shadow) -->
+              <linearGradient id="insideBackLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b0815"/>
+                <stop offset="100%" stop-color="#24030a"/>
+              </linearGradient>
+
+              <!-- Inside Back-Right Wall -->
+              <linearGradient id="insideBackRight" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#24030a"/>
+                <stop offset="100%" stop-color="#120105"/>
+              </linearGradient>
+
+              <!-- Golden Treasure Light Burst from Inside Box -->
+              <radialGradient id="giftGoldenBurst" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="25%" stop-color="#fff5b8"/>
+                <stop offset="55%" stop-color="#f4cf75"/>
+                <stop offset="80%" stop-color="rgba(242,132,158,0.5)"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </radialGradient>
+
               <!-- Box Body Left Face (Ruby Velvet) -->
               <linearGradient id="bodyLeftVelvet" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stop-color="#5c0e21"/>
@@ -104,19 +125,24 @@
             <!-- Ground Ambient Shadow -->
             <ellipse cx="120" cy="216" rx="86" ry="16" fill="url(#giftFloorShadow)"/>
 
-            <!-- Light Burst on Open -->
-            <circle cx="120" cy="110" r="50" fill="url(#giftFloorShadow)" class="gift-light-burst-svg" />
-
-            <!-- ================= BOX BODY ================= -->
+            <!-- ================= BOX BODY WITH INTERIOR ================= -->
             <g id="gift-box-body" class="gift-box-body-group">
-              <!-- Left Body Face -->
+              <!-- Inside Back-Left Wall -->
+              <polygon points="46,104 120,68 120,140 46,104" fill="url(#insideBackLeft)"/>
+              <!-- Inside Back-Right Wall -->
+              <polygon points="120,68 194,104 120,140 120,68" fill="url(#insideBackRight)"/>
+
+              <!-- Radiant Golden Light Burst from inside the box when opened -->
+              <ellipse cx="120" cy="100" rx="58" ry="36" fill="url(#giftGoldenBurst)" class="box-inner-light"/>
+
+              <!-- Front Left Face -->
               <polygon points="46,104 120,140 120,204 46,168" fill="url(#bodyLeftVelvet)" stroke="rgba(244,207,117,0.35)" stroke-width="0.6"/>
-              <!-- Left Vertical Gold Ribbon -->
+              <!-- Front Left Vertical Gold Ribbon -->
               <polygon points="76,118 90,125 90,189 76,182" fill="url(#goldSatinRibbon)"/>
 
-              <!-- Right Body Face -->
+              <!-- Front Right Face -->
               <polygon points="120,140 194,104 194,168 120,204" fill="url(#bodyRightVelvet)" stroke="rgba(244,207,117,0.35)" stroke-width="0.6"/>
-              <!-- Right Vertical Gold Ribbon -->
+              <!-- Front Right Vertical Gold Ribbon -->
               <polygon points="150,125 164,118 164,182 150,189" fill="url(#goldSatinRibbon)"/>
             </g>
 
