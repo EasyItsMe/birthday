@@ -171,19 +171,24 @@ body {
 
 /* Isometric 3D Luxury Gift Box */
 .gift-box-stage {
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
   position: relative;
   margin: 0 auto 16px;
   cursor: pointer;
   user-select: none;
   touch-action: manipulation;
   animation: floatGift 3.6s ease-in-out infinite alternate;
+  transition: transform 0.3s ease;
+}
+
+.gift-box-stage:hover {
+  transform: translateY(-4px) scale(1.03);
 }
 
 @keyframes floatGift {
   0% { transform: translateY(0); }
-  100% { transform: translateY(-8px); }
+  100% { transform: translateY(-7px); }
 }
 
 .svg-gift-box-3d {
@@ -191,17 +196,17 @@ body {
   height: 100%;
   display: block;
   overflow: visible;
-  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.6));
+  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.65));
 }
 
 .gift-box-lid-group {
-  transform-origin: 120px 92px;
+  transform-origin: 120px 96px;
   transition: transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.65s ease;
 }
 
 /* Open Animation */
 .gift-box-stage.opened .gift-box-lid-group {
-  transform: translateY(-60px) rotate(-18deg) scale(0.92);
+  transform: translateY(-62px) rotate(-16deg) scale(0.92);
   opacity: 0.15;
 }
 
@@ -219,19 +224,6 @@ body {
 @keyframes pulseGlowSvg {
   0% { transform: scale(1); opacity: 0.8; }
   100% { transform: scale(1.6); opacity: 1; }
-}
-
-.wax-seal-badge {
-  transition: transform 0.3s ease;
-  transform-origin: 120px 154px;
-}
-
-.gift-box-stage:hover .wax-seal-badge {
-  transform: scale(1.08);
-}
-
-.gift-box-stage:hover .wax-seal-badge-group {
-  transform: scale(1.1);
 }
 
 /* Entrance Copy */
