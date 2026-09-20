@@ -511,13 +511,35 @@ class BirthdayApp {
     container.innerHTML = RomanticConfig.memories.map((m, idx) => `
       <div class="polaroid-card" onclick="window.birthdayApp.openLightbox(${idx})">
         <div class="washi-tape"></div>
-        <div class="polaroid-curl-corner"></div>
         <div class="polaroid-img-box">
           <img src="${m.img}" alt="${m.title}" loading="lazy" />
         </div>
         <div class="polaroid-caption">
           <h4 class="polaroid-caption-title">${m.title}</h4>
           <p class="polaroid-date">${m.date}</p>
+        </div>
+        <div class="polaroid-page-curl" title="Curled page corner">
+          <svg viewBox="0 0 100 100" class="svg-page-curl">
+            <defs>
+              <linearGradient id="curlFlapGrad-${idx}" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="22%" stop-color="#eeeeee"/>
+                <stop offset="45%" stop-color="#cccccc"/>
+                <stop offset="62%" stop-color="#ffffff"/>
+                <stop offset="84%" stop-color="#888888"/>
+                <stop offset="100%" stop-color="#2a2a2a"/>
+              </linearGradient>
+              <filter id="curlBlur-${idx}" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="3"/>
+              </filter>
+            </defs>
+            <!-- Drop shadow cast by the page curl onto the surface -->
+            <path d="M 0,100 C 35,100 70,85 100,0 L 100,100 Z" fill="rgba(0,0,0,0.65)" filter="url(#curlBlur-${idx})"/>
+            <!-- Curled turned-over flap (metallic/satin page backside) -->
+            <path d="M 22,22 L 0,100 C 48,96 86,84 100,0 Z" fill="url(#curlFlapGrad-${idx})"/>
+            <!-- Specular shine along the diagonal roll curvature -->
+            <path d="M 12,48 C 42,76 72,62 90,12" stroke="rgba(255,255,255,0.9)" stroke-width="1.8" fill="none"/>
+          </svg>
         </div>
       </div>
     `).join('');
