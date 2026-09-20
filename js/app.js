@@ -66,27 +66,21 @@ const RomanticConfig = {
   memories: [
     {
       img: "assets/images/image1.jpeg",
-      title: "Hand in Hand Together",
+      title: "Holding Hands Together",
       date: "Walking by Your Side",
-      description: "Holding your hand and walking beside you is where I always want to be. Every simple step turns into my favorite memory when I'm with you."
+      description: "Holding your hand and walking beside you is where I always feel at peace. Every simple path turns into my favorite memory when I'm with you."
     },
     {
       img: "assets/images/image2.jpeg",
-      title: "Heart of Sparks",
-      date: "Warm Glowing Love",
-      description: "Our hands shaping a heart around a bright sparkler. You light up every corner of my soul with your warmth and affection."
+      title: "Our Cute Little Companion",
+      date: "Warm Smiles & Sweet Treasures",
+      description: "This adorable little fluffy friend that always brings a gentle smile, reminding me of your soft heart and cheerful warmth."
     },
     {
       img: "assets/images/image3.jpeg",
-      title: "Cute & Playful Soul",
-      date: "Sweet Little Moments",
-      description: "Your adorable sweetness when looking at cute plushies. Seeing you genuinely smile is the greatest gift in my world."
-    },
-    {
-      img: "assets/images/image4.jpeg",
-      title: "Midnight Sparkler",
-      date: "Under The Night Sky",
-      description: "Holding a glowing spark in the quiet evening. No matter how dark the world feels, your love is the guiding light that keeps me inspired."
+      title: "Adoring Cute Plushies",
+      date: "Sweet & Playful Moments",
+      description: "Watching you light up and admire cute toys is the sweetest sight in the world. Your genuine happiness and joyful eyes are my greatest treasure."
     }
   ],
 
