@@ -102,6 +102,8 @@ const RomanticConfig = {
 class BirthdayApp {
   constructor() {
     this.candleBlown = false;
+    this.letterTyped = false;
+    this._letterTimeout = null;
     this.anniversary = new Date(localStorage.getItem('hbd_anniversary') || RomanticConfig.anniversaryDate);
     this.selectedMood = "Loved every second of this! 💕";
 
@@ -137,6 +139,8 @@ class BirthdayApp {
     this.replyMessageInput = document.getElementById('reply-message-input');
     this.btnSendWhatsapp = document.getElementById('btn-send-whatsapp');
     this.moodChips = document.querySelectorAll('.mood-chip');
+
+    this.btnReplayLetter = document.getElementById('btn-replay-letter');
 
     this.lightbox = document.getElementById('lightbox-modal');
     this.lightboxImg = document.getElementById('lightbox-img');
@@ -230,6 +234,28 @@ class BirthdayApp {
     // Send WhatsApp Message Button
     if (this.btnSendWhatsapp) {
       this.btnSendWhatsapp.addEventListener('click', () => this.handleSendWhatsApp());
+    }
+
+    // Love Letter Replay Button
+    if (this.btnReplayLetter) {
+      this.btnReplayLetter.addEventListener('click', () => {
+        this.typewriterLetter();
+        window.romanticAudio.playSparkle();
+      });
+    }
+
+    // IntersectionObserver for Love Letter Auto-Typing
+    const letterSection = document.getElementById('letter');
+    if (letterSection && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !this.letterTyped) {
+            this.letterTyped = true;
+            this.typewriterLetter();
+          }
+        });
+      }, { threshold: 0.25 });
+      observer.observe(letterSection);
     }
 
     // Lightbox Close
@@ -400,6 +426,52 @@ class BirthdayApp {
     type();
   }
 
+  typewriterLetter() {
+    const bodyEl = document.getElementById('letter-body');
+    if (!bodyEl) return;
+
+    if (this._letterTimeout) {
+      clearTimeout(this._letterTimeout);
+    }
+    bodyEl.innerHTML = '';
+
+    const paragraphs = RomanticConfig.letter.paragraphs;
+    let pIdx = 0;
+
+    const typeNextParagraph = () => {
+      if (pIdx >= paragraphs.length) {
+        return;
+      }
+
+      const pText = paragraphs[pIdx];
+      const pEl = document.createElement('p');
+      pEl.className = 'letter-text';
+      bodyEl.appendChild(pEl);
+
+      const cursor = document.createElement('span');
+      cursor.className = 'typewriter-cursor';
+      pEl.appendChild(cursor);
+
+      let charIdx = 0;
+      const typeChar = () => {
+        if (charIdx < pText.length) {
+          cursor.insertAdjacentText('beforebegin', pText.charAt(charIdx));
+          charIdx++;
+          const delay = 16 + (Math.random() * 8 - 4);
+          this._letterTimeout = setTimeout(typeChar, delay);
+        } else {
+          cursor.remove();
+          pIdx++;
+          this._letterTimeout = setTimeout(typeNextParagraph, 280);
+        }
+      };
+
+      typeChar();
+    };
+
+    typeNextParagraph();
+  }
+
   renderReasons() {
     const container = document.getElementById('reasons-grid');
     if (!container) return;
@@ -439,6 +511,7 @@ class BirthdayApp {
     container.innerHTML = RomanticConfig.memories.map((m, idx) => `
       <div class="polaroid-card" onclick="window.birthdayApp.openLightbox(${idx})">
         <div class="washi-tape"></div>
+        <div class="polaroid-fold-corner"></div>
         <div class="polaroid-img-box">
           <img src="${m.img}" alt="${m.title}" loading="lazy" />
         </div>
@@ -479,7 +552,7 @@ class BirthdayApp {
     if (signOffEl) signOffEl.textContent = RomanticConfig.letter.signOff;
     if (signatureEl) signatureEl.textContent = RomanticConfig.letter.signature;
 
-    if (bodyEl) {
+    if (bodyEl && !bodyEl.innerHTML.trim()) {
       bodyEl.innerHTML = RomanticConfig.letter.paragraphs
         .map(p => `<p class="letter-text">${p}</p>`)
         .join('');
