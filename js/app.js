@@ -518,34 +518,6 @@ class BirthdayApp {
           <h4 class="polaroid-caption-title">${m.title}</h4>
           <p class="polaroid-date">${m.date}</p>
         </div>
-        <div class="polaroid-page-curl" title="Curled page corner">
-          <svg viewBox="0 0 100 100" class="svg-page-curl">
-            <defs>
-              <linearGradient id="curlFlapGrad-${idx}" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ffffff"/>
-                <stop offset="18%" stop-color="#f2f2f2"/>
-                <stop offset="42%" stop-color="#bfbfbf"/>
-                <stop offset="60%" stop-color="#ffffff"/>
-                <stop offset="82%" stop-color="#7a7a7a"/>
-                <stop offset="100%" stop-color="#1e1e1e"/>
-              </linearGradient>
-              <radialGradient id="curlShadow-${idx}" cx="72%" cy="72%" r="50%">
-                <stop offset="0%" stop-color="rgba(0,0,0,0.85)"/>
-                <stop offset="60%" stop-color="rgba(0,0,0,0.35)"/>
-                <stop offset="100%" stop-color="transparent"/>
-              </radialGradient>
-              <filter id="curlBlur-${idx}" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="3.5"/>
-              </filter>
-            </defs>
-            <!-- Drop shadow under the curled flap -->
-            <path d="M 0,100 C 35,100 70,85 100,0 L 100,100 Z" fill="url(#curlShadow-${idx})" filter="url(#curlBlur-${idx})"/>
-            <!-- Curled turned-over flap (metallic/satin page backside) -->
-            <path d="M 24,24 L 0,100 C 46,95 85,84 100,0 Z" fill="url(#curlFlapGrad-${idx})" stroke="rgba(255,255,255,0.7)" stroke-width="0.8"/>
-            <!-- Specular shine along the roll ridge -->
-            <path d="M 12,48 C 42,76 72,62 90,12" stroke="rgba(255,255,255,0.95)" stroke-width="2" fill="none"/>
-          </svg>
-        </div>
       </div>
     `).join('');
   }
