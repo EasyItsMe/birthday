@@ -167,12 +167,10 @@ body {
     padding: 26px 18px;
     max-width: 95vw;
   }
-}
-
-/* Isometric 3D Gift Box Stage */
+/* Isometric 3D Luxury Gift Box */
 .gift-box-stage {
-  width: 175px;
-  height: 175px;
+  width: 200px;
+  height: 200px;
   position: relative;
   margin: 0 auto 16px;
   cursor: pointer;
@@ -186,73 +184,48 @@ body {
   100% { transform: translateY(-8px); }
 }
 
-.gift-box-wrapper {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.box-body-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-}
-
-.box-lid-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.7s ease;
-  transform-origin: 50% 60%;
-}
-
-.svg-gift-lid,
-.svg-gift-body {
+.svg-gift-box-3d {
   width: 100%;
   height: 100%;
   display: block;
+  overflow: visible;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.6));
+}
+
+.gift-box-lid-group {
+  transform-origin: 120px 92px;
+  transition: transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.65s ease;
 }
 
 /* Open Animation */
-.gift-box-stage.opened .box-lid-svg {
-  transform: translateY(-55px) rotate(-16deg) scale(0.92);
+.gift-box-stage.opened .gift-box-lid-group {
+  transform: translateY(-60px) rotate(-18deg) scale(0.92);
   opacity: 0.15;
 }
 
-.gift-light-burst {
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 230, 150, 0.9) 0%, rgba(242, 132, 158, 0.4) 60%, transparent 100%);
+.gift-light-burst-svg {
   opacity: 0;
-  pointer-events: none;
+  transform-origin: 120px 110px;
   transition: opacity 0.5s ease;
-  z-index: 8;
 }
 
-.gift-box-stage.opened .gift-light-burst {
+.gift-box-stage.opened .gift-light-burst-svg {
   opacity: 1;
-  animation: pulseGlow 1.5s infinite alternate;
+  animation: pulseGlowSvg 1.5s infinite alternate;
 }
 
-@keyframes pulseGlow {
-  0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
-  100% { transform: translateX(-50%) scale(1.3); opacity: 1; }
+@keyframes pulseGlowSvg {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 1; }
 }
 
-.wax-seal-badge-group {
+.wax-seal-badge {
   transition: transform 0.3s ease;
-  transform-origin: 100px 90px;
+  transform-origin: 120px 154px;
+}
+
+.gift-box-stage:hover .wax-seal-badge {
+  transform: scale(1.08);
 }
 
 .gift-box-stage:hover .wax-seal-badge-group {
@@ -711,337 +684,83 @@ body {
   50% { opacity: 0; }
 }
 
-/* Interactive 3D Cake Container */
+/* Interactive 3D Birthday Cake Container */
 .cake-stage {
   position: relative;
-  width: 280px;
-  height: 250px;
-  margin: 0 auto 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
+  width: 290px;
+  height: 290px;
+  margin: 0 auto 14px;
   cursor: pointer;
   user-select: none;
   touch-action: manipulation;
+  animation: floatCake 4s ease-in-out infinite alternate;
 }
 
-@media (max-width: 360px) {
-  .cake-stage { transform: scale(0.88); }
+@keyframes floatCake {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-7px); }
 }
 
-.cake-3d-scene {
-  position: relative;
+@media (max-width: 380px) {
+  .cake-stage {
+    width: 260px;
+    height: 260px;
+  }
+}
+
+.svg-cake-3d-scene {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-/* 3D Tier Cylinders */
-.cake-tier-3d {
-  position: relative;
-  border-radius: 50% / 15%;
-  z-index: 5;
-}
-
-.tier-bottom {
-  width: 230px;
-  height: 84px;
-  position: absolute;
-  bottom: 12px;
-  z-index: 5;
-}
-
-.tier-top {
-  width: 160px;
-  height: 72px;
-  position: absolute;
-  bottom: 84px;
-  z-index: 8;
-}
-
-/* 3D Cylinder Surfaces */
-.tier-top-surface {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at 50% 40%, #ffeef2 0%, #fad4dc 55%, #e8a7b5 100%);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.2);
-  z-index: 3;
-}
-
-.tier-wall {
-  position: absolute;
-  top: 20px;
-  left: 0;
-  width: 100%;
-  height: calc(100% - 20px);
-  background: linear-gradient(180deg, #781832 0%, #520f21 50%, #350814 100%);
-  border-radius: 0 0 50% 50% / 0 0 20px 20px;
-  border: 1px solid rgba(244, 207, 117, 0.3);
-  border-top: none;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), inset 0 -4px 10px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  z-index: 2;
-}
-
-/* 3D Dripping Cream */
-.cream-drips-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background: radial-gradient(circle at 10px -2px, #fff5f7 10px, transparent 11px),
-              radial-gradient(circle at 26px -2px, #fff5f7 12px, transparent 13px),
-              radial-gradient(circle at 45px -2px, #fff5f7 8px, transparent 9px),
-              radial-gradient(circle at 65px -2px, #fff5f7 14px, transparent 15px),
-              radial-gradient(circle at 85px -2px, #fff5f7 10px, transparent 11px),
-              radial-gradient(circle at 105px -2px, #fff5f7 13px, transparent 14px),
-              radial-gradient(circle at 125px -2px, #fff5f7 9px, transparent 10px),
-              radial-gradient(circle at 145px -2px, #fff5f7 12px, transparent 13px);
-  background-repeat: repeat-x;
-  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
-}
-
-.cream-drips-svg.bottom-drips {
-  height: 24px;
-  background-size: 24px 20px;
-}
-
-/* 3D Topping Berries */
-.berry-toppings {
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 28px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 5;
-}
-
-.berry {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ff4d6d, #c9184a 70%, #590d22 100%);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset -1px -1px 2px rgba(0,0,0,0.4);
-  position: relative;
-}
-
-.frosting-rosette-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #ffffff 40%, #ffd6df 80%, #f4aab9 100%);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-
-.swirl-piping-ring {
-  position: absolute;
-  inset: 2px;
-  border-radius: 50%;
-  border: 2px dashed rgba(255, 235, 240, 0.6);
-}
-
-.gold-emboss-ribbon {
-  position: absolute;
-  bottom: 8px;
-  left: 0;
-  width: 100%;
-  height: 6px;
-  background: linear-gradient(90deg, #d4af37, #fef08a, #d4af37);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.4);
-}
-
-.pearl-sprinkles {
-  position: absolute;
-  top: 24px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-.pearl-sprinkles i {
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #fff, #f4cf75 60%, #b8860b 100%);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
-}
-
-/* 3D Platter / Cake Stand */
-.cake-plate-3d {
-  position: absolute;
-  bottom: 0;
-  width: 270px;
-  height: 22px;
-  z-index: 1;
-}
-
-.plate-top-rim {
-  width: 100%;
-  height: 20px;
-  border-radius: 50%;
-  background: linear-gradient(90deg, #8a9ba8 0%, #e2e8f0 30%, #ffffff 50%, #e2e8f0 70%, #64748b 100%);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.6), 0 0 20px rgba(244, 207, 117, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-}
-
-.plate-pedestal-shadow {
-  position: absolute;
-  bottom: -6px;
-  left: 5%;
-  width: 90%;
-  height: 12px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(0,0,0,0.85) 0%, rgba(242, 132, 158, 0.2) 50%, transparent 80%);
-}
-
-/* 3D Candle & Glowing Flame */
-.candle-wrapper {
-  position: absolute;
-  bottom: 145px;
-  z-index: 20;
-  display: flex;
-  justify-content: center;
-}
-
-.candle-3d {
-  position: relative;
-  width: 12px;
-  height: 48px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.candle-holder {
-  position: absolute;
-  bottom: -4px;
-  width: 18px;
-  height: 6px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #f4cf75, #b8860b);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-}
-
-.candle-stem {
-  width: 10px;
-  height: 44px;
-  background: repeating-linear-gradient(45deg, #fff275 0px, #fff275 6px, #f43f5e 6px, #f43f5e 12px);
-  border-radius: 3px 3px 2px 2px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.4), inset -2px 0 4px rgba(0,0,0,0.3);
-}
-
-.candle-wick {
-  width: 2px;
-  height: 8px;
-  background: #1e293b;
-  position: absolute;
-  top: -6px;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.55));
 }
 
 .flame-glow-halo {
-  position: absolute;
-  top: -38px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 200, 50, 0.6) 0%, rgba(244, 63, 94, 0.25) 50%, transparent 75%);
-  pointer-events: none;
   animation: pulseHalo 1.4s ease-in-out infinite alternate;
+  transform-origin: 160px 34px;
 }
 
 .flame-3d {
-  position: absolute;
-  top: -26px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 16px;
-  height: 26px;
-  background: linear-gradient(to bottom, #ffffff 0%, #fff7a0 25%, #ff7675 75%, #d63031 100%);
-  border-radius: 50% 50% 35% 35% / 60% 60% 40% 40%;
-  box-shadow: 0 0 16px #ff9f43, 0 0 32px #ff4757, 0 0 45px rgba(254, 202, 87, 0.8);
   animation: flicker3DFlame 1.1s ease-in-out infinite alternate;
-  transform-origin: 50% 90%;
+  transform-origin: 160px 44px;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 @keyframes flicker3DFlame {
-  0% { transform: translateX(-50%) scale(1) rotate(-2deg); }
-  30% { transform: translateX(-50%) scale(1.08, 0.94) rotate(2deg); }
-  70% { transform: translateX(-50%) scale(0.96, 1.06) rotate(-2deg); }
-  100% { transform: translateX(-50%) scale(1.02, 0.98) rotate(1deg); }
+  0% { transform: scale(1) rotate(-2deg); }
+  30% { transform: scale(1.08, 0.94) rotate(2.5deg); }
+  70% { transform: scale(0.96, 1.05) rotate(-2deg); }
+  100% { transform: scale(1.03, 0.97) rotate(1deg); }
 }
 
 @keyframes pulseHalo {
-  0% { transform: translateX(-50%) scale(0.85); opacity: 0.7; }
-  100% { transform: translateX(-50%) scale(1.15); opacity: 1; }
+  0% { transform: scale(0.85); opacity: 0.65; }
+  100% { transform: scale(1.15); opacity: 1; }
 }
 
 .smoke-3d {
-  position: absolute;
-  top: -28px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 24px;
-  background: rgba(220, 220, 220, 0.8);
-  filter: blur(4px);
-  border-radius: 50%;
   opacity: 0;
   pointer-events: none;
+  transform-origin: 160px 40px;
 }
 
-/* Extinguished State */
-.candle-3d.extinguished .flame-3d,
-.candle-3d.extinguished .flame-glow-halo {
-  opacity: 0;
-  transform: translateX(-50%) scale(0.2);
-}
-
-.candle-3d.extinguished .smoke-3d {
-  opacity: 1;
-  animation: riseSmoke 2.5s ease-out forwards;
-}
-
-@keyframes riseSmoke {
-  0% { transform: translateX(-50%) translateY(0) scale(0.8); opacity: 0.9; }
-  50% { transform: translateX(-30%) translateY(-25px) scale(1.5); opacity: 0.6; }
-  100% { transform: translateX(-60%) translateY(-55px) scale(2.2); opacity: 0; }
-}
-
-.candle.extinguished .flame {
+/* Extinguished Candle State */
+.cake-candle-group.extinguished .flame-3d,
+.cake-candle-group.extinguished .flame-glow-halo {
   opacity: 0;
   transform: scale(0.1);
 }
 
-.candle.extinguished .smoke {
-  animation: riseSmoke 1.6s ease-out forwards;
+.cake-candle-group.extinguished .smoke-3d {
+  opacity: 1;
+  animation: riseSmokeSvg 2.2s ease-out forwards;
 }
 
-@keyframes riseSmoke {
-  0% { opacity: 0.8; transform: translateY(0) scale(1); }
-  100% { opacity: 0; transform: translateY(-38px) scale(3) translateX(10px); }
+@keyframes riseSmokeSvg {
+  0% { transform: translateY(0) scale(0.8); opacity: 0.9; }
+  50% { transform: translateY(-20px) scale(1.4) translateX(-4px); opacity: 0.6; }
+  100% { transform: translateY(-45px) scale(2) translateX(-10px); opacity: 0; }
 }
 
 .cake-action-wrapper {
@@ -1271,70 +990,88 @@ section {
 }
 
 /* ==========================================================================
-   OUR MEMORIES - POLAROID WALL & LIGHTBOX
+   OUR MEMORIES - POLAROID WALL (With Curled Corner Paper Lift Effect)
    ========================================================================== */
 
 .polaroid-wall {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-  gap: 28px;
-  padding: 10px 0;
+  gap: 32px;
+  padding: 14px 6px;
   width: 100%;
 }
 
 .polaroid-card {
+  position: relative;
   background: #ffffff;
-  padding: 12px 12px 20px;
-  border-radius: 3px;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0,0,0,0.15);
+  padding: 12px 12px 22px;
+  border-radius: 4px;
   transform: rotate(var(--rot, 0deg));
   transition: var(--transition-bounce);
   cursor: pointer;
-  position: relative;
   touch-action: manipulation;
   overflow: visible;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* 3D Realistic Folded Dog-Ear Paper Corner */
+/* Curled Paper Corner Lift Shadows (Under Left & Right Bottom) */
+.polaroid-card::before,
 .polaroid-card::after {
-  content: '';
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  width: 48%;
+  height: 22px;
+  max-width: 130px;
+  box-shadow: 0 14px 18px rgba(0, 0, 0, 0.65);
+  z-index: -1;
+  transition: var(--transition-smooth);
+}
+
+.polaroid-card::before {
+  left: 8px;
+  transform: rotate(-4deg);
+  border-radius: 0 0 0 12px;
+}
+
+.polaroid-card::after {
+  right: 8px;
+  transform: rotate(4deg);
+  border-radius: 0 0 12px 0;
+}
+
+/* Curled Corner Page Lift Shading at Bottom Right */
+.polaroid-curl-corner {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 22px 22px;
-  border-color: transparent transparent #08060f transparent;
-  box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.4);
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, transparent 48%, rgba(0, 0, 0, 0.08) 50%, #f7f4ee 53%, #eae4d8 100%);
+  border-radius: 0 0 4px 0;
+  box-shadow: -2px -2px 6px rgba(0, 0, 0, 0.12);
   pointer-events: none;
   z-index: 10;
   transition: var(--transition-smooth);
 }
 
-.polaroid-fold-corner {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 22px 22px 0 0;
-  border-color: #dfdbd2 transparent transparent transparent;
-  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
-  pointer-events: none;
-  z-index: 11;
-  transition: var(--transition-smooth);
+.polaroid-card:hover .polaroid-curl-corner,
+.polaroid-card:active .polaroid-curl-corner {
+  width: 40px;
+  height: 40px;
+  box-shadow: -3px -3px 8px rgba(0, 0, 0, 0.22);
 }
 
-.polaroid-card:hover .polaroid-fold-corner,
-.polaroid-card:active .polaroid-fold-corner {
-  border-width: 26px 26px 0 0;
+.polaroid-card:hover::before,
+.polaroid-card:active::before {
+  box-shadow: 0 18px 26px rgba(0, 0, 0, 0.85);
+  bottom: 12px;
 }
 
 .polaroid-card:hover::after,
 .polaroid-card:active::after {
-  border-width: 0 0 26px 26px;
+  box-shadow: 0 18px 26px rgba(0, 0, 0, 0.85);
+  bottom: 12px;
 }
 
 .polaroid-card:nth-child(1) { --rot: -2deg; }
@@ -1350,7 +1087,6 @@ section {
 .polaroid-card:active {
   transform: rotate(0deg) scale(1.03) translateY(-6px);
   z-index: 20;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(242, 132, 158, 0.4);
 }
 
 .washi-tape {

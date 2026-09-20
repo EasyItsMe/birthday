@@ -511,7 +511,7 @@ class BirthdayApp {
     container.innerHTML = RomanticConfig.memories.map((m, idx) => `
       <div class="polaroid-card" onclick="window.birthdayApp.openLightbox(${idx})">
         <div class="washi-tape"></div>
-        <div class="polaroid-fold-corner"></div>
+        <div class="polaroid-curl-corner"></div>
         <div class="polaroid-img-box">
           <img src="${m.img}" alt="${m.title}" loading="lazy" />
         </div>
