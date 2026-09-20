@@ -992,38 +992,90 @@ section {
 }
 
 /* ==========================================================================
-   OUR MEMORIES - POLAROID WALL (With Curled Corner Paper Lift Effect)
+   OUR MEMORIES - ORGANIC POLAROID SCRAPBOOK (3D Page Curl & Natural Angles)
    ========================================================================== */
 
 .polaroid-wall {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-  gap: 32px;
-  padding: 14px 6px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 38px 28px;
+  padding: 24px 10px 10px;
   width: 100%;
+}
+
+@media (max-width: 640px) {
+  .polaroid-wall {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 20px 8px;
+  }
 }
 
 .polaroid-card {
   position: relative;
   background: #ffffff;
-  padding: 12px 12px 30px;
+  padding: 12px 12px 24px;
   border-radius: 4px;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 36px), calc(100% - 36px) 100%, 0 100%);
-  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.65));
-  transform: rotate(var(--rot, 0deg));
-  transition: var(--transition-bounce);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.2);
+  transform: rotate(var(--rot, 0deg)) translateY(var(--offset-y, 0px));
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.45s ease;
   cursor: pointer;
   touch-action: manipulation;
   overflow: visible;
 }
 
-/* 3D Curled Paper Roll / Page Peel (Matching Reference Image) */
+/* Organic Tilt on Desktop */
+.polaroid-card:nth-child(1) { --rot: -2.8deg; --offset-y: 6px; }
+.polaroid-card:nth-child(2) { --rot: 2.4deg; --offset-y: -6px; }
+.polaroid-card:nth-child(3) { --rot: -2deg; --offset-y: 8px; }
+.polaroid-card:nth-child(4) { --rot: 2.8deg; --offset-y: -4px; }
+
+/* Organic Scattered Angles on Mobile (No More Stiff/Rigid 0deg!) */
+@media (max-width: 640px) {
+  .polaroid-card:nth-child(1) { --rot: -3deg; transform: rotate(-3deg) translateX(-6px); }
+  .polaroid-card:nth-child(2) { --rot: 3.2deg; transform: rotate(3.2deg) translateX(6px); }
+  .polaroid-card:nth-child(3) { --rot: -2.5deg; transform: rotate(-2.5deg) translateX(-4px); }
+  .polaroid-card:nth-child(4) { --rot: 2.6deg; transform: rotate(2.6deg) translateX(4px); }
+}
+
+.polaroid-card:hover,
+.polaroid-card:active {
+  transform: rotate(0deg) scale(1.04) translateY(-10px) !important;
+  z-index: 25;
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(242, 132, 158, 0.35);
+}
+
+/* Authentic Washi Tape on Top */
+.washi-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(var(--tape-rot, -1deg));
+  width: 72px;
+  height: 20px;
+  background: rgba(244, 207, 117, 0.82);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-left: 2px dashed rgba(255, 255, 255, 0.45);
+  border-right: 2px dashed rgba(255, 255, 255, 0.45);
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.polaroid-card:nth-child(1) .washi-tape { --tape-rot: -3.5deg; }
+.polaroid-card:nth-child(2) .washi-tape { --tape-rot: 2.8deg; }
+.polaroid-card:nth-child(3) .washi-tape { --tape-rot: -2deg; }
+.polaroid-card:nth-child(4) .washi-tape { --tape-rot: 3deg; }
+
+/* 3D Realistic Page Curl (Turned Back Paper Corner) */
 .polaroid-page-curl {
   position: absolute;
-  bottom: -2px;
-  right: -2px;
-  width: 62px;
-  height: 62px;
+  bottom: 0;
+  right: 0;
+  width: 56px;
+  height: 56px;
   pointer-events: none;
   z-index: 15;
   transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -1039,33 +1091,7 @@ section {
 
 .polaroid-card:hover .polaroid-page-curl,
 .polaroid-card:active .polaroid-page-curl {
-  transform: scale(1.18);
-}
-
-.polaroid-card:nth-child(1) { --rot: -2deg; }
-.polaroid-card:nth-child(2) { --rot: 2deg; }
-.polaroid-card:nth-child(3) { --rot: -1.5deg; }
-.polaroid-card:nth-child(4) { --rot: 2.2deg; }
-
-@media (max-width: 640px) {
-  .polaroid-card { --rot: 0deg !important; }
-}
-
-.polaroid-card:hover,
-.polaroid-card:active {
-  transform: rotate(0deg) scale(1.03) translateY(-6px);
-  z-index: 20;
-}
-
-.washi-tape {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 65px;
-  height: 18px;
-  background: rgba(244, 207, 117, 0.7);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transform: scale(1.2);
 }
 
 .polaroid-img-box {
@@ -1091,7 +1117,7 @@ section {
 .polaroid-caption {
   margin-top: 12px;
   text-align: center;
-  padding: 0 20px 0 10px;
+  padding: 0 14px;
 }
 
 .polaroid-caption-title {
